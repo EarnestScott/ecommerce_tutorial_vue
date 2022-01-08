@@ -28,7 +28,7 @@
               >
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-                <span>Cart</span>
+                <span>Cart ({{ cartTotalLength }})</span>
               </router-link>
             </div>
           </div>
@@ -61,6 +61,18 @@ export default {
   beforeCreate() {
     // commit is how we call mutations on vuex store
     this.$store.commit("initializeStore");
+  },
+  // calculations based on page env
+  computed: {
+    // every time cart changed, this auto-updates
+    cartTotalLength() {
+      let totalLength = 0;
+
+      for (let i = 0; i < this.cart.items.length; i++) {
+        totalLength += this.cart.items[i].quantity;
+      }
+      return totalLength;
+    },
   },
 };
 </script>
