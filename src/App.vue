@@ -62,6 +62,9 @@ export default {
     // commit is how we call mutations on vuex store
     this.$store.commit("initializeStore");
   },
+  mounted() {
+    this.cart = this.$store.state.cart;
+  },
   // calculations based on page env
   computed: {
     // every time cart changed, this auto-updates
