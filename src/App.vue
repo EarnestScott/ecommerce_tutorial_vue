@@ -46,6 +46,24 @@
     </footer>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      showMobileMenu: false,
+      cart: {
+        items: [],
+      },
+    };
+  },
+  // hook executed before template created
+  // here we want to initialize store
+  beforeCreate() {
+    // commit is how we call mutations on vuex store
+    this.$store.commit("initializeStore");
+  },
+};
+</script>
 
 <style lang="scss">
 @import "../node_modules/bulma";
