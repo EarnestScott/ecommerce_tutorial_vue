@@ -49,6 +49,8 @@ export default {
   // vue lifecycle hook
   mounted() {
     this.getLatestProducts();
+
+    document.title = "Home | Djackets";
   },
   methods: {
     async getLatestProducts() {
